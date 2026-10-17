@@ -1,0 +1,332 @@
+/* ---------- Base ---------- */
+:root {
+    --brown: #6b5b53;
+    --sand: #dfd8d1;
+    --text-dark: #333;
+    --text-muted: #666;
+    --glass: rgba(255, 255, 255, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--sand);
+    color: #4a4a4a;
+}
+
+/* Shared section headings */
+.text-content h2,
+.treatments-section h2,
+.section-container h2 {
+    font-weight: 300;
+    font-size: 2.5rem;
+}
+
+/* ---------- Navigation ---------- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.logo h2 {
+    color: white;
+    font-weight: 300;
+    letter-spacing: 5px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    color: var(--text-dark);
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover { background-color: #f0f0f0; }
+
+/* ---------- Hero ---------- */
+.hero-image {
+    width: 100%;
+    height: 93vh;
+    background: url('./Source/img1.png') center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-title {
+    position: relative;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 7rem;
+    font-weight: 100;
+    letter-spacing: 1rem;
+}
+
+.hero-title::before,
+.hero-title::after {
+    content: '';
+    position: absolute;
+    left: 45%;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.hero-title::before { top: -30px; }
+.hero-title::after { bottom: -30px; }
+
+/* ---------- Content rows ---------- */
+.content-row {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 50px;
+}
+
+.content-row.reverse {
+    flex-direction: row-reverse;
+    background-color: #f4f4f4;
+}
+
+.text-content,
+.image-content { flex: 1; }
+
+.text-content { padding: 0 40px; }
+
+.text-content h2 {
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.text-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: var(--text-muted);
+}
+
+.action-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--brown);
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.content-img {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* ---------- Treatments ---------- */
+.treatments-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.treatments-section h2 { margin-bottom: 20px; }
+
+.treatment-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.treatment-card {
+    flex: 0 1 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.treatment-card-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    background-color: #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.treatment-desc {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--text-dark);
+}
+
+.treatment-desc span {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* ---------- Dynamic sections (Services, Price List, Booking) ---------- */
+.section-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.section-container h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.services-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-item {
+    width: calc(33% - 20px);
+    padding: 30px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-table th,
+.price-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.price-table th {
+    background-color: var(--brown);
+    color: white;
+}
+
+.price-table,
+form { background: var(--glass); }
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 8px;
+}
+
+form .action-btn { width: 100%; }
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.success-message {
+    margin-top: 20px;
+    color: green;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    padding: 40px 50px 20px;
+    background-color: #2b2b2b;
+    color: var(--sand);
+}
+
+.footer h2,
+.footer h3 {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.footer-center {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.footer-center h2 {
+    font-size: 2.2rem;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: var(--sand);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover { color: #fff; }
+
+.footer-copyright h3 {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.footer-copyright p {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .treatment-gallery { flex-direction: column; }
+    .footer { padding: 60px 20px 30px; }
+}
