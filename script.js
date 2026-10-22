@@ -118,3 +118,10 @@ container.addEventListener('submit', event => {
     event.target.hidden = true;
     document.getElementById('success-message').hidden = false;
 });
+
+// ---------- Button --------//
+const Learnmore = document.querySelectorAll(".action-btn").forEach(function(Learnmore) {
+    Learnmore.addEventListener("click" , function(){
+        alert("Soon to be added!!");
+    });
+});
